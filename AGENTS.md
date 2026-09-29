@@ -17,6 +17,12 @@ Web app for stock opname (physical inventory count) at a coffee point. Used by a
 6. All UI strings in Indonesian, isolated in one layer (see ADR-0004). Code, identifiers, comments, commits, and docs in English.
 7. No new dependencies without a written reason.
 
+## MCP tooling
+Always use the available MCP tools instead of guessing or falling back to raw shell commands:
+- **Serena** (`serena_*`): code search, symbol navigation, file edits, and diagnostics. Call `initial_instructions` before starting a coding task.
+- **Context7** (`resolve-library-id` + `query-docs`): fetch up-to-date docs for any library, framework, SDK, or CLI before writing code against it. Never rely on training data for API details, signatures, or install commands.
+- **Brave DevTools** (`brave-devtools_*`): drive the running app in a real browser — navigate, screenshot, read console/network, run Lighthouse. Prefer it over curl for UI verification.
+
 ## Quick references
 - What is built: `docs/PRD.md`
 - Terms and formulas: `docs/DOMAIN.md` (glossary: `CONTEXT.md`)

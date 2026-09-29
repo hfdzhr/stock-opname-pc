@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { FirebaseStatus } from "@/components/firebase-status";
 import { id } from "@/messages/id";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
           {id.app.tagline}
         </p>
       </div>
+      <FirebaseStatus />
       <Button size="lg" disabled>
         {id.app.foundationNote}
       </Button>

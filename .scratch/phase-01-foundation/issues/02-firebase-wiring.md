@@ -4,7 +4,7 @@
 
 **Blocked by:** 01 (Scaffold Next.js + shadcn + Indonesian string layer).
 
-**Status:** ready-for-agent
+**Status:** claimed
 
 - [ ] Login/logout round-trip works on a phone browser against the real Firebase project
 - [ ] Firestore read/write works from the device
