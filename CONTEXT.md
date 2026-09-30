@@ -9,7 +9,7 @@ The system-recorded stock used as the comparison baseline for a session.
 _Avoid_: system stock, book stock
 
 **PERHITUNGAN**:
-The physical count entered by a counter during a session.
+The physical count entered by the operator during a session.
 _Avoid_: actual stock, counted stock, count result
 
 **SELISIH**:

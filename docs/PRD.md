@@ -6,21 +6,20 @@ Make stock opname easy for the crew: count physical stock, compare it against th
 
 ## Users
 
-- **Admin**: manages master items, imports LPPTK data, opens sessions, approves results, exports reports.
-- **Counter** (_petugas_): enters count results on a phone.
+- **Operator**: one person who does everything end to end — manages master items, imports LPPTK data, opens sessions, enters counts on a phone, reviews and approves results, exports reports (see ADR-0005).
 
 ## Main flow
 
-1. Admin imports LPPTK data (PDF, or Excel/CSV as fallback), then reviews the preview.
-2. Admin creates an opname session (date, categories).
-3. Counters open the session and enter counts per item (BAG and KONVERSI). Weighed items use the tare calculator.
+1. The operator imports LPPTK data (PDF, or Excel/CSV as fallback), then reviews the preview.
+2. The operator creates an opname session (date, categories).
+3. The operator opens the session and enters counts per item (BAG and KONVERSI). Weighed items use the tare calculator.
 4. SELISIH appears immediately; problem items are highlighted.
-5. Admin reviews and approves the session.
-6. Admin exports the report (Excel/PDF) in a layout resembling the original sheet.
+5. The operator reviews and approves the session.
+6. The operator exports the report (Excel/PDF) in a layout resembling the original sheet.
 
 ## MVP
 
-- Login and roles (admin/counter)
+- Login (single operator, see ADR-0005)
 - Master items (PLU, category, conversion factor, tare, display order)
 - LPPTK import with preview and PLU matching
 - Opname sessions, count entry, automatic SELISIH

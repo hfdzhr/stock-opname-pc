@@ -16,6 +16,7 @@ Web app for stock opname (physical inventory count) at a coffee point. Used by a
 5. Work one phase from `docs/TASKS.md` per session. Do not start the next phase unasked.
 6. All UI strings in Indonesian, isolated in one layer (see ADR-0004). Code, identifiers, comments, commits, and docs in English.
 7. No new dependencies without a written reason.
+8. Always use **pnpm**, never npm (no `npm install`, no `npx` — use `pnpm` / `pnpm dlx`). This repo pins `packageManager: pnpm` with a `pnpm-lock.yaml` and `pnpm-workspace.yaml`.
 
 ## MCP tooling
 Always use the available MCP tools instead of guessing or falling back to raw shell commands:

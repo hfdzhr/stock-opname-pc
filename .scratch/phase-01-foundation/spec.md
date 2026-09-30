@@ -4,7 +4,7 @@ Source of truth: `docs/TASKS.md` (Phase 1), `docs/DATA_MODEL.md` (users), `docs/
 
 ## Scope
 
-Standing up the runnable skeleton everything else builds on: Next.js app, Firebase backend connection, roles, and a live staging URL. No domain logic (no master items, no import, no counting) — that belongs to Phases 2+.
+Standing up the runnable skeleton everything else builds on: Next.js app, Firebase backend connection, login guard, and a live staging URL. No domain logic (no master items, no import, no counting) — that belongs to Phases 2+.
 
 ## Out of scope
 

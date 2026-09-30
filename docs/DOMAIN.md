@@ -20,11 +20,11 @@ Resolved from the formulas embedded in `SO_Rekap.xlsx` (identical on all three s
 SELISIH = IF(PERHITUNGAN = "", "", PERHITUNGAN − LPPTK)
 ```
 
-Computed separately for the BAG and KONVERSI columns. A blank PERHITUNGAN yields a blank SELISIH (not zero). Implementation in code is deferred (no formula work needed yet); when implemented, recompute on approval so the final numbers never depend on a counter's device.
+Computed separately for the BAG and KONVERSI columns. A blank PERHITUNGAN yields a blank SELISIH (not zero). Implementation in code is deferred (no formula work needed yet); when implemented, recompute on approval so the final numbers never depend on a transient device state.
 
 ## Conversion
 
-`konversi = bag × conversionFactor` (+ any loose small-unit remainder). The factor is stored per master item (`conversionFactor`) and is nullable — when null, the counter enters BAG and KONVERSI manually.
+`konversi = bag × conversionFactor` (+ any loose small-unit remainder). The factor is stored per master item (`conversionFactor`) and is nullable — when null, the operator enters BAG and KONVERSI manually.
 
 ## Tare (container weight), from the "RUMUS SO" block on the sarana sheet
 

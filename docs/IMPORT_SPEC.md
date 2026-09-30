@@ -11,7 +11,7 @@ PDF is the primary source: operations sends a single PDF (e.g. `(SO) Stock Opnam
 3. Read the header (`DES`/`DESKRIPSI`, `PLU`, `LPPTK`, `BAG`, `KONVERSI`) to map columns, never fixed positions.
 4. Rows with two numeric codes parse as `[pluBag, pluKonversi]`; a single code parses as `pluBag` with `pluKonversi = null` (see ADR-0003).
 5. Items missing from the master are flagged **NEW**; master items missing from the file are flagged **MISSING**.
-6. Duplicate PLUs in one file are flagged **DUPLICATE** for the admin to merge or ignore. Two patterns exist in the wild: identical twin rows (`MUFFIN BANANA` twice with PLU `20122564`) and same-name-different-PLU rows (two `OAT1000ml` rows); never auto-merge either.
+6. Duplicate PLUs in one file are flagged **DUPLICATE** for the operator to merge or ignore. Two patterns exist in the wild: identical twin rows (`MUFFIN BANANA` twice with PLU `20122564`) and same-name-different-PLU rows (two `OAT1000ml` rows); never auto-merge either.
 7. Show a **preview screen** with a summary (matched/new/missing/duplicate counts) before persisting anything.
 8. Import results persist as LPPTK snapshots under `sessions/{id}/lines`.
 9. **Category comes from the master, never from the file.** The main PDF titles every page "BAHAN BAKU" even when the rows are store goods and supplies. Match each row's PLU against the master to determine its category; rows whose PLU matches nothing are NEW (rule 5).

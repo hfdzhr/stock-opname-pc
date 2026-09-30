@@ -1,5 +1,11 @@
 import { initializeApp, getApps, type FirebaseApp } from "firebase/app";
-import { getAuth, type Auth } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  type Auth,
+  type UserCredential,
+} from "firebase/auth";
 import {
   initializeFirestore,
   getFirestore,
@@ -42,6 +48,11 @@ function getFirebaseApp(): FirebaseApp {
 
 export const firebaseApp: FirebaseApp = getFirebaseApp();
 export const auth: Auth = getAuth(firebaseApp);
+export const googleProvider = new GoogleAuthProvider();
+
+export function signInWithGoogle(): Promise<UserCredential> {
+  return signInWithPopup(auth, googleProvider);
+}
 
 let firestoreInstance: Firestore | null = null;
 

@@ -4,8 +4,9 @@
 items/{itemId}
 sessions/{sessionId}
 sessions/{sessionId}/lines/{itemId}
-users/{uid}
 ```
+
+There is no `users` collection: the app has a single operator (see ADR-0005), so the operator's identity is the Firebase Auth UID already stored in `createdBy`, `countedBy`, and `approvedBy`.
 
 ## items/{itemId}
 
@@ -32,7 +33,7 @@ Single-code example:
   "conversionFactor": null, "tareKey": null, "displayOrder": 1, "active": true }
 ```
 
-`conversionFactor` is nullable: null means the counter enters BAG and KONVERSI manually. Sessions containing items with a null factor show a warning badge but still open.
+`conversionFactor` is nullable: null means the operator enters BAG and KONVERSI manually. Sessions containing items with a null factor show a warning badge but still open.
 
 ## tare (configuration, single document `config/tare`)
 
@@ -59,7 +60,7 @@ One session may cover multiple categories; the phone UI filters per category.
 
 ## sessions/{sessionId}/lines/{itemId}
 
-One document per item so several counters can write concurrently without overwriting each other (see ADR-0002).
+One document per item keeps per-item offline merging clean and avoids one contended session document (see ADR-0002).
 
 ```json
 {
@@ -75,11 +76,3 @@ One document per item so several counters can write concurrently without overwri
 ```
 
 `lpptk` is a snapshot taken at import. Later master changes must not alter old sessions.
-
-## users/{uid}
-
-```json
-{ "name": "...", "role": "admin | petugas" }
-```
-
-The role is also stored as a Firebase Auth custom claim (source of truth for Security Rules).
