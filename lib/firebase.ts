@@ -1,8 +1,9 @@
 import { initializeApp, getApps, type FirebaseApp } from "firebase/app";
 import {
   getAuth,
+  getRedirectResult,
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithRedirect,
   type Auth,
   type UserCredential,
 } from "firebase/auth";
@@ -50,8 +51,15 @@ export const firebaseApp: FirebaseApp = getFirebaseApp();
 export const auth: Auth = getAuth(firebaseApp);
 export const googleProvider = new GoogleAuthProvider();
 
-export function signInWithGoogle(): Promise<UserCredential> {
-  return signInWithPopup(auth, googleProvider);
+// Redirect (not popup) is the only sign-in flow: popups are blocked or
+// silently dropped on mobile browsers and in-app WebViews, while a
+// full-page redirect works on both desktop and phones.
+export function signInWithGoogle(): Promise<void> {
+  return signInWithRedirect(auth, googleProvider);
+}
+
+export function resolveRedirectSignIn(): Promise<UserCredential | null> {
+  return getRedirectResult(auth);
 }
 
 let firestoreInstance: Firestore | null = null;
