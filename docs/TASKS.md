@@ -2,7 +2,7 @@
 
 Work in order; one phase per agent session.
 
-- [ ] **Phase 1: Foundation.** Next.js + shadcn + Firebase setup, Auth (single operator), base layout, Vercel deploy.
+- [x] **Phase 1: Foundation.** Next.js + shadcn + Firebase setup, Auth (single operator), base layout, Vercel deploy.
 - [ ] **Phase 2: Master items.** Item CRUD, categories, display order, tare/density config.
 - [ ] **Phase 3: Import.** PDF parser first (primary source), then Excel/CSV fallback; PLU matching; preview screen (matched/new/missing/duplicate). Must implement rules 9–11 of IMPORT_SPEC (category from master, page-break joins, non-data row skipping).
 - [ ] **Phase 4: Sessions and counting.** Create sessions, mobile count screen, tare calculator, offline persistence, sync indicator.
